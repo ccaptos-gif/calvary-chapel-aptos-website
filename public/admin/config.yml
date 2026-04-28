@@ -26,6 +26,35 @@ display_url: https://calvarychapelaptos.com
 logo_url: /images/img-05.png
 
 collections:
+  # Site-wide singletons (one record per file).
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "announcement"
+        label: "Announcement Banner"
+        file: "public/content/settings/announcement.json"
+        description: "A bar at the top of every page. Toggle off to hide. Use for service-time changes, holiday notices, weather closures."
+        fields:
+          - { label: "Show banner on the site", name: "enabled", widget: "boolean", default: false }
+          - { label: "Message", name: "message", widget: "string", hint: "Keep it short — one sentence" }
+          - { label: "Link text (optional)", name: "link_text", widget: "string", required: false }
+          - { label: "Link URL (optional)", name: "link_url", widget: "string", required: false }
+
+      - name: "general"
+        label: "General Info"
+        file: "public/content/settings/general.json"
+        description: "Address, phone, social URLs. These appear in the footer and on the contact page."
+        fields:
+          - { label: "Church Name", name: "name", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string", hint: "Shows in the footer under the church name" }
+          - { label: "Street Address", name: "address_street", widget: "string" }
+          - { label: "City / State / Zip", name: "address_city", widget: "string" }
+          - { label: "Phone Number", name: "phone", widget: "string" }
+          - { label: "Facebook URL", name: "facebook_url", widget: "string" }
+          - { label: "Vimeo (full sermon archive)", name: "vimeo_url", widget: "string" }
+          - { label: "Saturday Prayer Contact — Name", name: "prayer_contact_name", widget: "string" }
+          - { label: "Saturday Prayer Contact — Phone", name: "prayer_contact_phone", widget: "string" }
+
   - name: "sermons"
     label: "Sermons"
     label_singular: "Sermon"
@@ -75,6 +104,23 @@ collections:
       - { label: "Photo", name: "image", widget: "image", required: false, hint: "Optional. Drag & drop a portrait" }
       - { label: "Bio", name: "bio", widget: "text", required: false }
       - { label: "Order", name: "order", widget: "number", required: false, default: 0 }
+
+  - name: "series"
+    label: "Sermon Series (Books of the Bible)"
+    label_singular: "Series"
+    folder: "public/content/series"
+    create: true
+    slug: "{{order}}-{{slug}}"
+    extension: "json"
+    format: "json"
+    summary: "{{book}} — {{subtitle}}"
+    description: "Tiles shown on the Sermons page beneath the latest messages. One per book/series the church has taught through."
+    fields:
+      - { label: "Book / Series Title", name: "book", widget: "string", hint: "e.g. Gospel of John" }
+      - { label: "Subtitle", name: "subtitle", widget: "string", hint: "e.g. 21 chapters, or a date range" }
+      - { label: "Cover Image", name: "image", widget: "image", required: false }
+      - { label: "Vimeo Link (optional)", name: "vimeo_url", widget: "string", required: false, hint: "Specific showcase for this series. Leave blank to fall back to the main archive." }
+      - { label: "Order", name: "order", widget: "number", required: false, default: 99, hint: "Lower numbers show first" }
 
   - name: "past_events"
     label: "Past Events"

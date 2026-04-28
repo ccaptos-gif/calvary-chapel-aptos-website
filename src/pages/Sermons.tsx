@@ -1,6 +1,6 @@
 import { PageHeader } from '../components/PageHeader'
 import { SITE } from '../data/site'
-import { sermons as RECENT } from '../data/content'
+import { sermons as RECENT, series as SERIES } from '../data/content'
 
 function formatDate(iso: string) {
   if (!iso) return ''
@@ -8,15 +8,6 @@ function formatDate(iso: string) {
   if (Number.isNaN(d.getTime())) return iso
   return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
 }
-
-const SERIES = [
-  { book: 'Gospel of John', verses: '21 chapters', image: '/images/img-13.jpg' },
-  { book: 'Acts', verses: '28 chapters', image: '/images/img-08.jpg' },
-  { book: 'Hebrews', verses: '13 chapters', image: '/images/img-09.jpg' },
-  { book: 'Romans', verses: '16 chapters', image: '/images/img-07.jpg' },
-  { book: 'Revelation', verses: '22 chapters', image: '/images/img-02.jpg' },
-  { book: 'Ezra', verses: '10 chapters', image: '/images/img-04.jpg' },
-]
 
 export function Sermons() {
   return (
@@ -112,21 +103,23 @@ export function Sermons() {
             {SERIES.map((s) => (
               <a
                 key={s.book}
-                href={SITE.vimeo}
+                href={s.vimeo_url || SITE.vimeo}
                 target="_blank"
                 rel="noreferrer"
                 className="group relative aspect-[4/5] overflow-hidden bg-ocean-900"
               >
-                <img
-                  src={s.image}
-                  alt=""
-                  className="h-full w-full object-cover opacity-60 transition-all duration-700 group-hover:scale-105 group-hover:opacity-50"
-                />
+                {s.image && (
+                  <img
+                    src={s.image}
+                    alt=""
+                    className="h-full w-full object-cover opacity-60 transition-all duration-700 group-hover:scale-105 group-hover:opacity-50"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-ocean-900 via-ocean-900/30 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                   <h3 className="font-display text-2xl">{s.book}</h3>
                   <p className="mt-1 text-xs uppercase tracking-[0.24em] text-sand-300">
-                    {s.verses}
+                    {s.subtitle}
                   </p>
                 </div>
               </a>

@@ -1,14 +1,23 @@
+// Site-wide constants. The values come from the CMS-editable
+// `public/content/settings/general.json` so the office can update
+// address, phone, social URLs, etc. without a developer.
+
+import { settings } from './content'
+
 export const SITE = {
-  name: 'Calvary Chapel Aptos',
-  tagline: 'A family in Christ',
+  name: settings.name,
+  tagline: settings.tagline,
   address: {
-    street: '8065 Valencia Street',
-    city: 'Aptos, CA 95003',
+    street: settings.address_street,
+    city: settings.address_city,
   },
-  phone: '831-275-4719',
-  facebook: 'https://www.facebook.com/calvarychapelaptos',
-  vimeo: 'https://vimeo.com/showcase/11602466',
-  prayer_contact: { name: 'Emilie', phone: '831-713-7440' },
+  phone: settings.phone,
+  facebook: settings.facebook_url,
+  vimeo: settings.vimeo_url,
+  prayer_contact: {
+    name: settings.prayer_contact_name,
+    phone: settings.prayer_contact_phone,
+  },
 }
 
 export const NAV = [

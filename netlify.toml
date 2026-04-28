@@ -1,0 +1,18 @@
+[build]
+  command = "bun run build"
+  publish = "dist"
+
+# Decap CMS lives at /admin/ as a separate static page. Match it BEFORE
+# the SPA fallback so requests to /admin/<anything> serve the CMS HTML
+# and not the React app.
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+# Single-page-app fallback: every other route serves index.html so React
+# Router can pick it up on the client.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

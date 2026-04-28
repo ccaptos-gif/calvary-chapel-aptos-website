@@ -9,7 +9,7 @@ import { Faith } from './pages/Faith'
 import { Leadership } from './pages/Leadership'
 import { Ministries } from './pages/Ministries'
 import { Sermons } from './pages/Sermons'
-import { Events } from './pages/Events'
+import { RelatedMinistries } from './pages/RelatedMinistries'
 import { Donate } from './pages/Donate'
 import { Contact } from './pages/Contact'
 
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       { path: 'leadership', Component: Leadership },
       { path: 'ministries', Component: Ministries },
       { path: 'sermons', Component: Sermons },
-      { path: 'events', Component: Events },
+      { path: 'related-ministries', Component: RelatedMinistries },
       { path: 'donate', Component: Donate },
       { path: 'contact', Component: Contact },
     ],

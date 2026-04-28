@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { AnnouncementBanner } from './components/AnnouncementBanner'
+import { Analytics } from './components/Analytics'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -16,6 +17,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <ScrollToTop />
+      <Analytics />
       <AnnouncementBanner />
       <Header />
       <main className="flex-1">

@@ -54,6 +54,7 @@ collections:
           - { label: "Vimeo (full sermon archive)", name: "vimeo_url", widget: "string" }
           - { label: "Saturday Prayer Contact — Name", name: "prayer_contact_name", widget: "string" }
           - { label: "Saturday Prayer Contact — Phone", name: "prayer_contact_phone", widget: "string" }
+          - { label: "Google Analytics Measurement ID", name: "google_analytics_id", widget: "string", required: false, hint: "Format: G-XXXXXXXXXX. Leave blank to disable analytics." }
 
   - name: "sermons"
     label: "Sermons"
@@ -122,19 +123,19 @@ collections:
       - { label: "Vimeo Link (optional)", name: "vimeo_url", widget: "string", required: false, hint: "Specific showcase for this series. Leave blank to fall back to the main archive." }
       - { label: "Order", name: "order", widget: "number", required: false, default: 99, hint: "Lower numbers show first" }
 
-  - name: "past_events"
-    label: "Past Events"
-    label_singular: "Past Event"
-    folder: "public/content/past_events"
+  - name: "related_ministries"
+    label: "Related Ministries"
+    label_singular: "Related Ministry"
+    folder: "public/content/related_ministries"
     create: true
-    slug: "{{year}}-{{slug}}"
+    slug: "{{slug}}"
     extension: "json"
     format: "json"
-    summary: "{{date}} — {{title}}"
+    summary: "{{name}}"
+    description: "Churches and partner ministries shown on the Related Ministries page. Each links out to that ministry's website."
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "string", hint: "e.g. July 20, 2024" }
-      - { label: "Year", name: "year", widget: "number", hint: "Used for sort order" }
-      - { label: "Place / Time", name: "place", widget: "string", required: false }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Photo", name: "image", widget: "image", required: false }
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Description", name: "description", widget: "text", hint: "1-2 sentences about this ministry" }
+      - { label: "Website URL", name: "url", widget: "string", required: false }
+      - { label: "Logo / Photo", name: "image", widget: "image", required: false }
+      - { label: "Order", name: "order", widget: "number", required: false, default: 99, hint: "Lower numbers show first" }

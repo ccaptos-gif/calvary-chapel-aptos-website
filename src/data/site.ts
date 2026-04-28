@@ -27,6 +27,6 @@ export const NAV = [
   { label: 'Leadership', to: '/leadership' },
   { label: 'Ministries', to: '/ministries' },
   { label: 'Sermons', to: '/sermons' },
-  { label: 'Past Events', to: '/events' },
+  { label: 'Related Ministries', to: '/related-ministries' },
   { label: 'Contact', to: '/contact' },
 ]

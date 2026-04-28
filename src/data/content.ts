@@ -32,13 +32,12 @@ export type Leader = {
   order?: number
 }
 
-export type PastEvent = {
-  title: string
-  date: string
-  year: number
-  place?: string
+export type RelatedMinistry = {
+  name: string
   description: string
+  url?: string
   image?: string
+  order?: number
 }
 
 export type Series = {
@@ -59,6 +58,7 @@ export type GeneralSettings = {
   vimeo_url: string
   prayer_contact_name: string
   prayer_contact_phone: string
+  google_analytics_id?: string
 }
 
 export type Announcement = {
@@ -87,9 +87,9 @@ export const leaders: Leader[] = loadCollection<Leader>(
   import.meta.glob('/public/content/leaders/*.json', { eager: true })
 ).sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
 
-export const pastEvents: PastEvent[] = loadCollection<PastEvent>(
-  import.meta.glob('/public/content/past_events/*.json', { eager: true })
-).sort((a, b) => b.year - a.year)
+export const relatedMinistries: RelatedMinistry[] = loadCollection<RelatedMinistry>(
+  import.meta.glob('/public/content/related_ministries/*.json', { eager: true })
+).sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
 
 export const series: Series[] = loadCollection<Series>(
   import.meta.glob('/public/content/series/*.json', { eager: true })

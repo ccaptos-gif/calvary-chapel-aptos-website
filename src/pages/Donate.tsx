@@ -21,7 +21,7 @@ export function Donate() {
           </p>
 
           <a
-            href="https://www.paypal.com/donate"
+            href="https://www.paypal.com/ncp/payment/Y73SWR3UYY5RW"
             target="_blank"
             rel="noreferrer"
             className="mt-12 inline-flex items-center gap-3 rounded-full bg-ocean-700 px-8 py-4 text-sm font-medium text-white hover:bg-ocean-900 transition"
